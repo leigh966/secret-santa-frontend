@@ -1,7 +1,7 @@
 import StartSession from "./StartSession";
 
 function startSession(root) {
-  root.render(<StartSession />);
+  root.render(<StartSession root={root} />);
 }
 
 export default function Home(props) {

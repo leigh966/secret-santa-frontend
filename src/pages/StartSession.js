@@ -1,4 +1,6 @@
 import { useState } from "react";
+import NameList from "../components/NameList";
+import SessionCreated from "./SessionCreated";
 
 function addName(names, setNames) {
   const nameTextbox = document.getElementById("inputName");
@@ -9,36 +11,38 @@ function addName(names, setNames) {
   nameTextbox.value = "";
 }
 
+function tryStart(names, root) {
+  fetch("http://localhost:8000/create-session", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: `{
+   "names": ${JSON.stringify(Array.from(names))}
+  }`,
+  }).then((response) => {
+    if (response.status == 201) {
+      response
+        .text()
+        .then((text) =>
+          root.render(<SessionCreated root={root} gameId={text} />)
+        );
+    } else {
+      alert("Error: host returned status code " + response.status);
+    }
+  });
+}
+
 function StartButton(props) {
   const MIN_PLAYERS = 3;
   if (props.nameCount < MIN_PLAYERS) return;
-  return <button>Start</button>;
+  return <button onClick={props.onClick}>Start</button>;
 }
 
-function removeName(name, names, setNames) {
-  let newNames = new Set(names);
-  newNames.delete(name);
-  setNames(newNames);
-}
-
-export default function StartSession() {
+export default function StartSession(props) {
   let [names, setNames] = useState(new Set());
-  let elems = [];
-  console.log(names);
-  names.forEach((name) => {
-    elems.push(
-      <div className="NameListItemDiv">
-        <h3 className="InputtedName NameListComponent">{name}</h3>
-        <button
-          onClick={() => removeName(name, names, setNames)}
-          className="NameListComponent"
-          id="btnDeleteName"
-        >
-          x
-        </button>
-      </div>
-    );
-  });
+
   return (
     <div>
       <input
@@ -47,11 +51,17 @@ export default function StartSession() {
         onKeyDown={(event) => {
           if (event.key === "Enter") addName(names, setNames);
         }}
+        autoComplete="off"
       ></input>
       <button onClick={() => addName(names, setNames)}>Add</button>
-      {<StartButton nameCount={names.size} />}
+
+      <StartButton
+        nameCount={names.size}
+        onClick={() => tryStart(names, props.root)}
+      />
+
       <br />
-      {elems}
+      <NameList names={names} setNames={setNames} />
     </div>
   );
 }
