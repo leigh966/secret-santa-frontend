@@ -1,0 +1,18 @@
+.InputtedName {
+  float: left;
+}
+
+.NameListComponent {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  overflow: hidden;
+}
+
+#btnDeleteName {
+  margin-left: 5px;
+  overflow: hidden;
+}
+
+.NameListItemDiv {
+  overflow: hidden;
+}
