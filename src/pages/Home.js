@@ -1,9 +1,10 @@
-import StartSession from "./StartSession";
+import { root } from "../Root";
+import CreateGame from "./CreateGame";
 
-function startSession(root) {
-  root.render(<StartSession root={root} />);
+function startCreatingGame() {
+  root.render(<CreateGame />);
 }
 
-export default function Home(props) {
-  return <button onClick={() => startSession(props.root)}>Start Now!</button>;
+export default function Home() {
+  return <button onClick={startCreatingGame}>Start Now!</button>;
 }
