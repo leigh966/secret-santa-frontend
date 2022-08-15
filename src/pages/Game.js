@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 function getGameDrawDate(gameId, setDrawDate) {
-  fetch(`${BACKEND_URL}/game/${gameId}/draw_date`)
+  fetch(`${BACKEND_URL}game/${gameId}/draw_date`)
     .then((response) => {
       if (response.status === 200) return response.text();
       else root.render(<NoPage />);
