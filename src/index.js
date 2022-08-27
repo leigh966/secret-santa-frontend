@@ -2,6 +2,7 @@ import { root } from "./Root";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import "./Stylesheet.css";
+import "./App.css";
 import Game from "./pages/Game";
 import NoPage from "./pages/NoPage";
 
