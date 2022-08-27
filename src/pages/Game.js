@@ -3,6 +3,7 @@ import NoPage from "./NoPage";
 import { root } from "../Root";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import SelfRegister from "../components/SelfRegister";
 
 function getGameDrawDate(gameId, setDrawDate) {
   fetch(`${BACKEND_URL}game/${gameId}/draw_date`)
@@ -20,5 +21,5 @@ export default function Game() {
   if (drawDate === "") {
     getGameDrawDate(id, setDrawDate);
   }
-  return <h1>{drawDate}</h1>;
+  return <SelfRegister gameId={id} />;
 }
