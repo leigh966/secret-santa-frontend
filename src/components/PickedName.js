@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { BACKEND_URL, sendAuthenticatedRequest } from "../webconfig";
+import { BACKEND_URL, sendAuthenticatedRequest, STATUS } from "../webconfig";
 
 function getPickedName(game_id, name, password, setPickedName) {
   const url = `${BACKEND_URL}picked/${game_id}`;
   sendAuthenticatedRequest(url, name, password)
     .then((resp) => {
-      if (resp.status === 200 || resp.status === 201) {
+      if (resp.status === STATUS.OK || resp.status === STATUS.CREATED) {
         resp.text().then(setPickedName);
       } else {
         resp.text().then(alert);

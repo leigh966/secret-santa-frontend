@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "../webconfig";
+import { BACKEND_URL, STATUS } from "../webconfig";
 import NoPage from "./NoPage";
 import { root } from "../Root";
 import { useParams } from "react-router-dom";
@@ -8,7 +8,7 @@ import SelfRegister from "../components/SelfRegister";
 function getGameDrawDate(gameId, setDrawDate) {
   fetch(`${BACKEND_URL}game/${gameId}/draw_date`)
     .then((response) => {
-      if (response.status === 200) return response.text();
+      if (response.status === STATUS.OK) return response.text();
       else root.render(<NoPage />);
     })
     .then(setDrawDate)

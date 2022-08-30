@@ -19,3 +19,8 @@ export function sendAuthenticatedRequest(url, name, pass) {
   const options = getSignInOptions(name, pass);
   return fetch(url, options);
 }
+
+export const STATUS = {
+  CREATED: 201,
+  OK: 200,
+};

@@ -1,5 +1,5 @@
 import { root } from "../Root";
-import { BACKEND_URL, JSON_HEADERS } from "../webconfig";
+import { BACKEND_URL, JSON_HEADERS, STATUS } from "../webconfig";
 import GameCreated from "../pages/GameCreated";
 
 async function postNewGame(draw_date) {
@@ -13,7 +13,7 @@ async function postNewGame(draw_date) {
   };
   await fetch(BACKEND_URL + "create-session/self-register", options)
     .then((response) => {
-      if (response.status == 201) return response.text();
+      if (response.status == STATUS.CREATED) return response.text();
     })
     .then((text) => (game_id = text))
     .catch((err) => alert(err));

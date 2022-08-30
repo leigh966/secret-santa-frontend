@@ -5,6 +5,7 @@ import {
   BACKEND_URL,
   JSON_HEADERS,
   sendAuthenticatedRequest,
+  STATUS,
 } from "../webconfig";
 import NamePasswordForm from "./NamePasswordForm";
 
@@ -14,7 +15,7 @@ function tryLogin(name, password) {
   const url = `${BACKEND_URL}players/${game_id}`;
   sendAuthenticatedRequest(url, name, password)
     .then((response) => {
-      if (response.status == 200) return response.json();
+      if (response.status == STATUS.OK) return response.json();
       alert("backend returned error code: " + response.status);
       return null;
     })
@@ -36,7 +37,7 @@ function tryRegister(name, password) {
   const url = `${BACKEND_URL}register/${game_id}`;
   sendAuthenticatedRequest(url, name, password)
     .then((response) => {
-      if (response.status == 201) {
+      if (response.status == STATUS.CREATED) {
         alert("You have been entered into the draw!");
         tryLogin(name, password);
         return null;
