@@ -26,7 +26,15 @@ function tryLogin(name, password) {
       return null;
     })
     .then((data) => {
-      if (data) root.render(<LoggedIn names={data.names} gameId={game_id} />);
+      if (data)
+        root.render(
+          <LoggedIn
+            names={data.names}
+            gameId={game_id}
+            myName={name}
+            password={password}
+          />
+        );
     })
     .catch(alert);
 }
