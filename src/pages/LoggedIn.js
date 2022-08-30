@@ -6,7 +6,7 @@ import PostDraw from "./PostDraw";
 function PrePostDecider() {}
 
 function getDrawDate(gameId, setDrawDate) {
-  fetch(BACKEND_URL + `/game/${gameId}/draw_date`)
+  fetch(getDrawDate(`/game/${gameId}/draw_date`))
     .then((response) => {
       if (response.status == 200) return response.text();
       response.text().then(alert);

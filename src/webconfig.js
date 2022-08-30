@@ -15,6 +15,11 @@ export function getSignInOptions(name, pass) {
   };
   return options;
 }
+
+export function getBackendEndpointURL(endpoint) {
+  return `${BACKEND_URL}endpoint`;
+}
+
 export function sendAuthenticatedRequest(url, name, pass) {
   const options = getSignInOptions(name, pass);
   return fetch(url, options);

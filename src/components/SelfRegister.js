@@ -1,9 +1,9 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import LoggedIn from "../pages/LoggedIn";
 import { root } from "../Root";
 import {
   BACKEND_URL,
-  JSON_HEADERS,
+  getBackendEndpointURL,
   sendAuthenticatedRequest,
   STATUS,
 } from "../webconfig";
@@ -12,7 +12,7 @@ import NamePasswordForm from "./NamePasswordForm";
 let game_id;
 
 function tryLogin(name, password) {
-  const url = `${BACKEND_URL}players/${game_id}`;
+  const url = getBackendEndpointURL(`players/${game_id}`);
   sendAuthenticatedRequest(url, name, password)
     .then((response) => {
       if (response.status == STATUS.OK) return response.json();
@@ -34,7 +34,7 @@ function tryLogin(name, password) {
 }
 
 function tryRegister(name, password) {
-  const url = `${BACKEND_URL}register/${game_id}`;
+  const url = getBackendEndpointURL(`register/${game_id}`);
   sendAuthenticatedRequest(url, name, password)
     .then((response) => {
       if (response.status == STATUS.CREATED) {
