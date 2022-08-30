@@ -1,20 +1,9 @@
 import { useState } from "react";
-import { BACKEND_URL } from "../webconfig";
+import { BACKEND_URL, sendAuthenticatedRequest } from "../webconfig";
 
 function getPickedName(game_id, name, password, setPickedName) {
   const url = `${BACKEND_URL}picked/${game_id}`;
-  const options = {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: `{
-         "name": "${name}",
-         "password": "${password}"
-        }`,
-  };
-  fetch(url, options)
+  sendAuthenticatedRequest(url, name, password)
     .then((resp) => {
       if (resp.status === 200 || resp.status === 201) {
         resp.text().then(setPickedName);

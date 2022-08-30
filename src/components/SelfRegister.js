@@ -1,25 +1,18 @@
 import { useCallback, useState } from "react";
 import LoggedIn from "../pages/LoggedIn";
 import { root } from "../Root";
-import { BACKEND_URL } from "../webconfig";
+import {
+  BACKEND_URL,
+  JSON_HEADERS,
+  sendAuthenticatedRequest,
+} from "../webconfig";
 import NamePasswordForm from "./NamePasswordForm";
 
 let game_id;
 
 function tryLogin(name, password) {
   const url = `${BACKEND_URL}players/${game_id}`;
-  const options = {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: `{
-         "name": "${name}",
-         "password": "${password}"
-        }`,
-  };
-  fetch(url, options)
+  sendAuthenticatedRequest(url, name, password)
     .then((response) => {
       if (response.status == 200) return response.json();
       alert("backend returned error code: " + response.status);
@@ -41,18 +34,7 @@ function tryLogin(name, password) {
 
 function tryRegister(name, password) {
   const url = `${BACKEND_URL}register/${game_id}`;
-  const options = {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: `{
-       "name": "${name}",
-       "password": "${password}"
-      }`,
-  };
-  fetch(url, options)
+  sendAuthenticatedRequest(url, name, password)
     .then((response) => {
       if (response.status == 201) {
         alert("You have been entered into the draw!");

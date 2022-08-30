@@ -1,15 +1,12 @@
 import { root } from "../Root";
-import { BACKEND_URL } from "../webconfig";
+import { BACKEND_URL, JSON_HEADERS } from "../webconfig";
 import GameCreated from "../pages/GameCreated";
 
 async function postNewGame(draw_date) {
   let game_id = -1;
   const options = {
     method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
+    headers: JSON_HEADERS,
     body: `{
        "draw": "${draw_date}"
       }`,
