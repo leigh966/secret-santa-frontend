@@ -17,7 +17,7 @@ export function getSignInOptions(name, pass) {
 }
 
 export function getBackendEndpointURL(endpoint) {
-  return `${BACKEND_URL}endpoint`;
+  return BACKEND_URL + endpoint;
 }
 
 export function sendAuthenticatedRequest(url, name, pass) {
