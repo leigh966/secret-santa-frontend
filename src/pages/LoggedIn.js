@@ -1,12 +1,10 @@
 import PreDraw from "./PreDraw";
 import { useState } from "react";
-import { BACKEND_URL } from "../webconfig";
+import { BACKEND_URL, getBackendEndpointURL } from "../webconfig";
 import PostDraw from "./PostDraw";
 
-function PrePostDecider() {}
-
 function getDrawDate(gameId, setDrawDate) {
-  fetch(getDrawDate(`/game/${gameId}/draw_date`))
+  fetch(getBackendEndpointURL(`/game/${gameId}/draw_date`))
     .then((response) => {
       if (response.status == 200) return response.text();
       response.text().then(alert);
