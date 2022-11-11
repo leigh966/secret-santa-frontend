@@ -7,6 +7,7 @@ import {
   sendAuthenticatedRequest,
   STATUS,
 } from "../webconfig";
+import GroupDropdown from "./GroupDropdown";
 import NamePasswordForm from "./NamePasswordForm";
 
 let game_id;
@@ -59,6 +60,7 @@ export default function SelfRegister(props) {
   let [name, setName] = useState("");
   let [password, setPassword] = useState("");
   let [registering, setRegistering] = useState(false);
+  let [dropDownSelection, setDropdown] = useState(0);
   return (
     <div>
       <NamePasswordForm
@@ -73,6 +75,11 @@ export default function SelfRegister(props) {
             tryLogin(name, password);
           }
         }}
+      />
+      <GroupDropdown
+        current={dropDownSelection}
+        handler={setDropdown}
+        gameId={game_id}
       />
       <RegisterButton
         registering={registering}
