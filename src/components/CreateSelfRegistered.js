@@ -2,13 +2,14 @@ import { root } from "../Root";
 import { BACKEND_URL, JSON_HEADERS, STATUS } from "../webconfig";
 import GameCreated from "../pages/GameCreated";
 
-async function postNewGame(draw_date) {
+async function postNewGame(props) {
   let game_id = -1;
   const options = {
     method: "POST",
     headers: JSON_HEADERS,
     body: `{
-       "draw": "${draw_date}"
+       "draw": "${props.drawDate}",
+       "groups": "${props.groupNames}"
       }`,
   };
   await fetch(BACKEND_URL + "create-session/self-register", options)
@@ -28,7 +29,5 @@ async function createGame(date) {
 }
 
 export default function CreateSelfRegistered(props) {
-  return (
-    <button onClick={() => createGame(props.drawDate)}>Create Game</button>
-  );
+  return <button onClick={() => createGame(props)}>Create Game</button>;
 }

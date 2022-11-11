@@ -7,12 +7,17 @@ import TimePicker from "react-time-picker";
 import "../DateExtention";
 import FamilyModeForm from "../components/FamilyModeForm";
 
-function getBody(method, date, time) {
+function getBody(method, date, time, groupNames) {
   const timeParts = time.split(":");
   date.setHours(timeParts[0]);
   date.setMinutes(timeParts[1]);
   if (method === "self")
-    return <CreateSelfRegistered drawDate={date.toSqlDate()} />;
+    return (
+      <CreateSelfRegistered
+        drawDate={date.toSqlDate()}
+        groupNames={groupNames}
+      />
+    );
   else return <p>Coming Soon</p>;
 }
 
