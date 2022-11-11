@@ -39,15 +39,16 @@ export default class GroupDropdown extends React.Component {
     if (!this.state.groups) return <h4>Loading...</h4>;
 
     const options = this.getOptions();
-    return (
-      <Dropdown
-        options={options}
-        onChange={(option) => {
-          this.props.handler(option);
-        }}
-        value={this.props.current}
-        placeholder="Select a group"
-      />
-    );
+    if (options.length)
+      return (
+        <Dropdown
+          options={options}
+          onChange={(option) => {
+            this.props.handler(option);
+          }}
+          value={this.props.current}
+          placeholder="Select a group"
+        />
+      );
   }
 }
