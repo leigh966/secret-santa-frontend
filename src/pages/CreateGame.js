@@ -15,7 +15,7 @@ function getBody(method, date, time, groupNames) {
     return (
       <CreateSelfRegistered
         drawDate={date.toSqlDate()}
-        groupNames={groupNames}
+        groupNames={Array.from(groupNames)}
       />
     );
   else return <p>Coming Soon</p>;
@@ -69,7 +69,7 @@ export default function CreateGame() {
         onChange={setTime}
         value={selectedTime}
       />
-      {getBody(method, selectedDate, selectedTime)}
+      {getBody(method, selectedDate, selectedTime, groupNames)}
     </div>
   );
 }
