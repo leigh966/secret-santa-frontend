@@ -28,7 +28,6 @@ body {
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  border: 3px solid green;
   height: 92%;
   width: 99%;
 }
@@ -42,8 +41,6 @@ body {
 
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-
-  border: 3px solid red;
 }
 
 .credit {
