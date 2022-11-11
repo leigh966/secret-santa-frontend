@@ -14,6 +14,7 @@ export default function Home() {
         <link rel="stylesheet" href="Home.css" />
       </Helmet>
       <div className="msgNbtn">
+        <h1 id="h1SecretSanta">Secret Santa</h1>
         <button onClick={startCreatingGame} className="btnStart">
           Start Now!
         </button>
