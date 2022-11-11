@@ -4,10 +4,12 @@ import GameCreated from "../pages/GameCreated";
 
 async function postNewGame(props) {
   let groupsString = "[";
-  props.groupNames.forEach((element) => {
-    groupsString += `"${element}",`;
-  });
-  groupsString = groupsString.substring(0, groupsString.length - 1) + "]";
+  if (props.groupNames.length) {
+    props.groupNames.forEach((element) => {
+      groupsString += `"${element}",`;
+    });
+    groupsString = groupsString.substring(0, groupsString.length - 1) + "]";
+  } else groupsString += "]";
   let game_id = -1;
   const options = {
     method: "POST",
