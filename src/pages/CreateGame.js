@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from "react-time-picker";
 import "../DateExtention";
+import FamilyModeForm from "../components/FamilyModeForm";
 
 function getBody(method, date, time) {
   const timeParts = time.split(":");
@@ -33,9 +34,12 @@ export default function CreateGame() {
   const [selectedDate, setSelectedDate] = useState(startDate);
   const [selectedTime, setTime] = useState("12:00");
 
+  const [groupNames, setGroupNames] = new useState(new Set());
+
   return (
     <div>
       <MethodRadios method={method} setMethod={setMethod} />
+      <FamilyModeForm names={groupNames} setNames={setGroupNames} />
       <label>Draw on:</label>
       <DatePicker
         dateFormat="dd/MM/yyyy"
