@@ -6,6 +6,8 @@ const MAX_DIAMETER = 40;
 const MIN_DIAMETER = 10;
 const MIN_Y_VELOCITY = 0.3;
 const STORM_BORDER_WIDTH = 80;
+const FRAMERATE = 60.0;
+const FRAME_TIME = (1.0 / FRAMERATE) * 100.0;
 
 class Snowflake extends React.Component {
   constructor() {
@@ -31,7 +33,7 @@ class Snowflake extends React.Component {
         ],
         velocity: this.state.velocity,
       });
-    }, 16);
+    }, FRAME_TIME);
   }
 
   componentWillUnmount() {
