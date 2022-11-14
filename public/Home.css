@@ -2,6 +2,7 @@ body {
   background-image: url("home-background-main.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 
 #h1SecretSanta {
@@ -28,7 +29,7 @@ body {
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  height: 92%;
+  height: 100%;
   width: 99%;
 }
 

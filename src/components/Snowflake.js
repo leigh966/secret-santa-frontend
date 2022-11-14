@@ -5,7 +5,6 @@ const MIN_OPACITY = 0.5;
 const MAX_DIAMETER = 40;
 const MIN_DIAMETER = 10;
 const MIN_Y_VELOCITY = 0.3;
-const STORM_BORDER_WIDTH = 80;
 const FRAMERATE = 60.0;
 const FRAME_TIME = (1.0 / FRAMERATE) * 100.0;
 
@@ -41,14 +40,14 @@ class Snowflake extends React.Component {
   }
 
   render() {
-    if (this.state.position[0] > window.innerWidth - STORM_BORDER_WIDTH)
-      this.state.position[0] = -STORM_BORDER_WIDTH;
-    if (this.state.position[1] > window.innerHeight - STORM_BORDER_WIDTH)
-      this.state.position[1] = -STORM_BORDER_WIDTH;
-    if (this.state.position[0] < -STORM_BORDER_WIDTH)
-      this.state.position[0] = window.innerWidth - STORM_BORDER_WIDTH;
-    if (this.state.position[1] < -STORM_BORDER_WIDTH)
-      this.state.position[1] = window.innerHeight - STORM_BORDER_WIDTH;
+    if (this.state.position[0] > window.innerWidth + MAX_DIAMETER)
+      this.state.position[0] = -MAX_DIAMETER;
+    if (this.state.position[1] > window.innerHeight + MAX_DIAMETER)
+      this.state.position[1] = -MAX_DIAMETER;
+    if (this.state.position[0] < -MAX_DIAMETER)
+      this.state.position[0] = window.innerWidth + MAX_DIAMETER;
+    if (this.state.position[1] < -MAX_DIAMETER)
+      this.state.position[1] = window.innerHeight + MAX_DIAMETER;
     const myStyle = {
       position: "absolute",
       left: this.state.position[0],
