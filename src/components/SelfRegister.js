@@ -34,9 +34,10 @@ function tryLogin(name, password) {
     .catch(alert);
 }
 
-function tryRegister(name, password) {
+function tryRegister(name, password, groupId) {
+  console.log(groupId);
   const url = getBackendEndpointURL(`register/${game_id}`);
-  sendAuthenticatedRequest(url, name, password)
+  sendAuthenticatedRequest(url, name, password, "group_id", groupId)
     .then((response) => {
       if (response.status == STATUS.CREATED) {
         alert("You have been entered into the draw!");
@@ -60,7 +61,8 @@ export default function SelfRegister(props) {
   let [name, setName] = useState("");
   let [password, setPassword] = useState("");
   let [registering, setRegistering] = useState(false);
-  let [dropDownSelection, setDropdown] = useState(0);
+  let [dropDownSelection, setDropdown] = useState({ value: null, label: null });
+  console.log(dropDownSelection);
   return (
     <div>
       <NamePasswordForm
@@ -70,7 +72,7 @@ export default function SelfRegister(props) {
         setPassword={setPassword}
         onSubmit={() => {
           if (registering) {
-            tryRegister(name, password);
+            tryRegister(name, password, dropDownSelection.value);
           } else {
             tryLogin(name, password);
           }

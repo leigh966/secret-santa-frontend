@@ -20,8 +20,20 @@ export function getBackendEndpointURL(endpoint) {
   return BACKEND_URL + endpoint;
 }
 
-export function sendAuthenticatedRequest(url, name, pass) {
-  const options = getSignInOptions(name, pass);
+export function sendAuthenticatedRequest(
+  url,
+  name,
+  pass,
+  fieldName,
+  fieldValue
+) {
+  let options = getSignInOptions(name, pass);
+  if (fieldName) {
+    options.body =
+      options.body[0] +
+      `"${fieldName}": ${fieldValue},` +
+      options.body.substring(1);
+  }
   return fetch(url, options);
 }
 

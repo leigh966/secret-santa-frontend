@@ -30,7 +30,8 @@ export default class GroupDropdown extends React.Component {
   getOptions() {
     let options = [];
     this.state.groups.forEach((group) => {
-      options.push({ value: group.group_id, label: group.name });
+      console.log(group);
+      options.push({ value: group.id, label: group.name });
     });
     return options;
   }
