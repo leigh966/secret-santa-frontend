@@ -18,11 +18,11 @@ function getDrawDate(gameId, setDrawDate) {
     .catch(alert);
 }
 
-export default function LoggedIn({ names, gameId, myName, password }) {
+export default function LoggedIn({ players, gameId, myName, password }) {
   let [drawDate, setDrawDate] = useState("");
   if (drawDate === "") getDrawDate(gameId, setDrawDate);
   const drawDateAsDate = new Date(drawDate);
   if (drawDateAsDate.getTime() > Date.now())
-    return <PreDraw names={names} gameId={gameId} drawDate={drawDate} />;
+    return <PreDraw players={players} gameId={gameId} drawDate={drawDate} />;
   return <PostDraw gameId={gameId} name={myName} password={password} />;
 }

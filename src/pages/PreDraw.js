@@ -5,10 +5,14 @@ function CountdownTimerWhenReady({ drawDate }) {
   if (drawDate) return <CountdownTimer targetDate={drawDate} />;
 }
 
-function EnteredNameList({ names }) {
+function EnteredNameList({ players }) {
   let elements = [];
-  names.forEach((element) => {
-    elements.push(<li>{element}</li>);
+  players.forEach((element) => {
+    elements.push(
+      <li>
+        {element.name} - {element.group}
+      </li>
+    );
   });
   return <ul>{elements}</ul>;
 }
@@ -19,7 +23,7 @@ export default function PreDraw(props) {
       <h3>Names will be drawn in:</h3>
       <CountdownTimerWhenReady drawDate={props.drawDate} />
       <h3>Players currently entered into the draw:</h3>
-      <EnteredNameList names={props.names} />
+      <EnteredNameList players={props.players} />
       <DrawNowButton gameId={props.gameId} />
     </div>
   );
