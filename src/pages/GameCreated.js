@@ -9,7 +9,7 @@ function GameLink(props) {
 
 export default function GameCreated(props) {
   return (
-    <div>
+    <div className="centredDiv">
       <h3>Your game has been created!</h3>
       <GameLink gameId={props.gameId} />
     </div>
