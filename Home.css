@@ -1,0 +1,56 @@
+body {
+  background-image: url("home-background-main.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#h1SecretSanta {
+  font-size: 8em;
+  color: aliceblue;
+  font-family: Arial, Helvetica, fantasy;
+}
+
+.btnStart {
+  width: 10em;
+  height: 4em;
+
+  position: absolute;
+  top: 100%;
+  left: 50%;
+
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.Home {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 100%;
+  width: 99%;
+}
+
+.msgNbtn {
+  margin: 0;
+
+  position: absolute;
+  top: 40%;
+  left: 50%;
+
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.credit {
+  position: absolute;
+  color: white;
+  left: 100%;
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+  top: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
