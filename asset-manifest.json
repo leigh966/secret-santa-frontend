@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.aed2f397.css",
-    "main.js": "/static/js/main.049af145.js",
-    "index.html": "/index.html",
-    "main.aed2f397.css.map": "/static/css/main.aed2f397.css.map",
-    "main.049af145.js.map": "/static/js/main.049af145.js.map"
+    "main.css": "/secret-santa-frontend/static/css/main.aed2f397.css",
+    "main.js": "/secret-santa-frontend/static/js/main.190a58b3.js",
+    "index.html": "/secret-santa-frontend/index.html",
+    "main.aed2f397.css.map": "/secret-santa-frontend/static/css/main.aed2f397.css.map",
+    "main.190a58b3.js.map": "/secret-santa-frontend/static/js/main.190a58b3.js.map"
   },
   "entrypoints": [
     "static/css/main.aed2f397.css",
-    "static/js/main.049af145.js"
+    "static/js/main.190a58b3.js"
   ]
 }
