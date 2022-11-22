@@ -36,5 +36,12 @@ async function createGame(date) {
 }
 
 export default function CreateSelfRegistered(props) {
-  return <button onClick={() => createGame(props)}>Create Game</button>;
+  return (
+    <>
+      <br />
+      <button id="btnCreateGame" onClick={() => createGame(props)}>
+        <b>Create</b>
+      </button>
+    </>
+  );
 }
