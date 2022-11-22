@@ -41,8 +41,8 @@ export default function InputList(props) {
   let elems = [];
   props.names.forEach((name) => {
     elems.push(
-      <div>
-        <h3>{name}</h3>
+      <div id="inputGroupsListDiv" class="indentedDiv">
+        <label>{name}</label>
         <button
           onClick={() => removeName(name, props.names, props.setNames)}
           id="btnDeleteName"

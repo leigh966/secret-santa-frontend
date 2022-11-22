@@ -46,7 +46,7 @@ export default function CreateGame() {
       <h1>Create Draw</h1>
       <MethodRadios method={method} setMethod={setMethod} />
       <FamilyModeForm names={groupNames} setNames={setGroupNames} />
-      <label>Draw on:</label>
+      <h3 id="drawDateHeading">Draw on:</h3>
       <DatePicker
         dateFormat="dd/MM/yyyy"
         minDate={startDate}
@@ -56,7 +56,7 @@ export default function CreateGame() {
           setSelectedDate(date);
         }}
       />
-      at
+      <label>at </label>
       <TimePicker
         minTime={
           selectedDate.getTime() != today().getTime()

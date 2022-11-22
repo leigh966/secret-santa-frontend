@@ -19,13 +19,17 @@ class FamilyModeForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="groupModeDiv">
+        <b>
+          <label id="groupModeLabel" title={GROUP_MODE_MORE_INFO}>
+            Group Mode:{" "}
+          </label>
+        </b>
         <input
           type="checkbox"
           onChange={this.onClickCheckbox}
           checked={this.state.enabled}
         />{" "}
-        <label title={GROUP_MODE_MORE_INFO}>Group Mode</label>
         <div style={{ display: this.state.enabled ? "block" : "none" }}>
           <InputList names={this.props.names} setNames={this.props.setNames} />
         </div>

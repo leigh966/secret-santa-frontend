@@ -9,7 +9,7 @@ export default function MethodRadios(props) {
   return (
     <Form.Group inline>
       <h3>Registration Method: </h3>
-      <div id="methodRadios">
+      <div class="indentedDiv">
         <Form.Radio
           label="Self-Register"
           checked={props.method === "self"}

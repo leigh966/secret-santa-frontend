@@ -4,8 +4,27 @@
   color: rgb(63, 62, 62);
 }
 
-#methodRadios {
+#inputGroupsListDiv {
+  padding: 10px;
+  padding-left: 0px;
+}
+
+#btnDeleteName {
+  position: absolute;
+  left: 6%;
+}
+
+.indentedDiv {
   margin-left: 1%;
+}
+
+#groupModeDiv {
+  margin: 1%;
+  margin-left: 0px;
+}
+
+#groupModeLabel {
+  font-size: large;
 }
 
 .expired-notice {
