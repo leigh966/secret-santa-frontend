@@ -1,7 +1,7 @@
 import React from "react";
 
-const MAX_OPACITY = 1;
-const MIN_OPACITY = 0.5;
+const MAX_OPACITY = 0.8;
+const MIN_OPACITY = 0.3;
 const MAX_DIAMETER = 40;
 const MIN_DIAMETER = 10;
 const MIN_Y_VELOCITY = 0.3;
