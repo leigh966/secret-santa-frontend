@@ -57,15 +57,37 @@ function RegisterButton(props) {
     return <button onClick={() => props.setRegistering(true)}>Register</button>;
 }
 
+function getGroupDropdown(
+  dropDownSelection,
+  setDropdown,
+  game_id,
+  registering
+) {
+  if (registering)
+    return (
+      <GroupDropdown
+        current={dropDownSelection}
+        handler={setDropdown}
+        gameId={game_id}
+      />
+    );
+}
+
+function getHeader(registering) {
+  if (registering) return <h1>Register</h1>;
+  else return <h1>Log In</h1>;
+}
+
 export default function SelfRegister(props) {
   game_id = props.gameId;
   let [name, setName] = useState("");
   let [password, setPassword] = useState("");
   let [registering, setRegistering] = useState(false);
-  let [dropDownSelection, setDropdown] = useState({ value: null, label: null });
+  let [dropDownSelection, setDropdown] = useState(""); // needs to be falsy for placeholder to show
   console.log(dropDownSelection);
   return (
     <div>
+      {getHeader(registering)}
       <NamePasswordForm
         name={name}
         password={password}
@@ -79,11 +101,7 @@ export default function SelfRegister(props) {
           }
         }}
       />
-      <GroupDropdown
-        current={dropDownSelection}
-        handler={setDropdown}
-        gameId={game_id}
-      />
+      {getGroupDropdown(dropDownSelection, setDropdown, game_id, registering)}
       <RegisterButton
         registering={registering}
         setRegistering={setRegistering}

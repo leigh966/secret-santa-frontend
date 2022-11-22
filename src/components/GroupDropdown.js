@@ -47,7 +47,7 @@ export default class GroupDropdown extends React.Component {
             this.props.handler(option);
           }}
           value={this.props.current}
-          placeholder="Select a group"
+          placeholder={"Select a group"}
         />
       );
   }
