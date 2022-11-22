@@ -1,3 +1,13 @@
+.methodDescriptor {
+  margin-top: 0px;
+  margin-left: 2%;
+  color: rgb(63, 62, 62);
+}
+
+#methodRadios {
+  margin-left: 1%;
+}
+
 .expired-notice {
   text-align: center;
   padding: 2rem;

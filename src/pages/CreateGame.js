@@ -43,6 +43,7 @@ export default function CreateGame() {
 
   return (
     <div>
+      <h1>Create Draw</h1>
       <MethodRadios method={method} setMethod={setMethod} />
       <FamilyModeForm names={groupNames} setNames={setGroupNames} />
       <label>Draw on:</label>
