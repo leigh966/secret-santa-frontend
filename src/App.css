@@ -4,6 +4,11 @@
   color: rgb(63, 62, 62);
 }
 
+.Dropdown-control {
+  width: 350px;
+  height: 30px;
+}
+
 .centredDiv {
   position: absolute;
   left: 50%;
