@@ -47,29 +47,31 @@ export default function CreateGame() {
       <MethodRadios method={method} setMethod={setMethod} />
       <FamilyModeForm names={groupNames} setNames={setGroupNames} />
       <h3 id="drawDateHeading">Draw on:</h3>
-      <DatePicker
-        dateFormat="dd/MM/yyyy"
-        minDate={startDate}
-        selected={selectedDate}
-        onChange={(date) => {
-          date.setHours(0, 0, 0, 0);
-          setSelectedDate(date);
-        }}
-      />
-      <label>at </label>
-      <TimePicker
-        minTime={
-          selectedDate.getTime() != today().getTime()
-            ? "00:00"
-            : new Date().toLocaleTimeString("en-GB", {
-                hour12: false,
-                hour: "numeric",
-                minute: "numeric",
-              })
-        }
-        onChange={setTime}
-        value={selectedTime}
-      />
+      <div class="indentedDiv">
+        <DatePicker
+          dateFormat="dd/MM/yyyy"
+          minDate={startDate}
+          selected={selectedDate}
+          onChange={(date) => {
+            date.setHours(0, 0, 0, 0);
+            setSelectedDate(date);
+          }}
+        />
+        <label>at </label>
+        <TimePicker
+          minTime={
+            selectedDate.getTime() != today().getTime()
+              ? "00:00"
+              : new Date().toLocaleTimeString("en-GB", {
+                  hour12: false,
+                  hour: "numeric",
+                  minute: "numeric",
+                })
+          }
+          onChange={setTime}
+          value={selectedTime}
+        />
+      </div>
       {getBody(method, selectedDate, selectedTime, groupNames)}
     </div>
   );
