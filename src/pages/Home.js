@@ -10,7 +10,7 @@ function startCreatingGame() {
 export default function Home() {
   return (
     <div className="Home">
-      v1.0.4
+      v1.0.5
       <Helmet>
         <link rel="stylesheet" href="Home.css" />
       </Helmet>
