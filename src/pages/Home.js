@@ -10,6 +10,10 @@ function startCreatingGame() {
 export default function Home() {
   return (
     <div className="Home">
+<<<<<<< HEAD
+=======
+      v1.0.6
+>>>>>>> 24c85d2 (Updated title and icon to be more relevent)
       <Helmet>
         <link rel="stylesheet" href="Home.css" />
       </Helmet>
