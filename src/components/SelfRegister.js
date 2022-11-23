@@ -83,7 +83,7 @@ export default function SelfRegister(props) {
   let [name, setName] = useState("");
   let [password, setPassword] = useState("");
   let [registering, setRegistering] = useState(false);
-  let [dropDownSelection, setDropdown] = useState(""); // needs to be falsy for placeholder to show
+  let [dropDownSelection, setDropdown] = useState(null); // needs to be falsy for placeholder to show
   console.log(dropDownSelection);
   return (
     <div>
@@ -95,7 +95,11 @@ export default function SelfRegister(props) {
         setPassword={setPassword}
         onSubmit={() => {
           if (registering) {
-            tryRegister(name, password, dropDownSelection.value);
+            tryRegister(
+              name,
+              password,
+              dropDownSelection ? dropDownSelection.value : null
+            );
           } else {
             tryLogin(name, password);
           }
