@@ -20,7 +20,11 @@ export default function Home() {
           Start Now!
         </button>
       </div>
-      <p className="credit">by Leigh Hurley</p>
+      <b>
+        <div id="divCredit">
+          <p id="pCredit">by Leigh Hurley</p>
+        </div>
+      </b>
       <SnowStorm />
     </div>
   );

@@ -44,13 +44,17 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.credit {
-  position: absolute;
-  color: white;
-  left: 100%;
-  -ms-transform: translate(-100%, -100%);
-  transform: translate(-100%, -100%);
-  top: 97%;
+#divCredit {
+  margin-left: auto;
+  margin-right: 0px;
+  color: rgb(255, 255, 255);
   white-space: nowrap;
   overflow: hidden;
+  font-size: larger;
+}
+
+#pCredit {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }
