@@ -2,8 +2,19 @@ import { FRONTEND_URL } from "../webconfig";
 
 function GameLink(props) {
   if (props.gameId) {
-    const gameLink = `${FRONTEND_URL}game/${props.gameId}`;
-    return <a href={gameLink}>{gameLink}</a>;
+    const to = `game/${props.gameId}`;
+    const gameLink = FRONTEND_URL + to;
+    return (
+      <a
+        href={gameLink}
+        onClick={() => {
+          window.location.replace(gameLink);
+          window.location.reload(false);
+        }}
+      >
+        {gameLink}
+      </a>
+    );
   }
 }
 
