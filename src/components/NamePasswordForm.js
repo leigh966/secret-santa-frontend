@@ -9,7 +9,7 @@ export default function NamePasswordForm(props) {
       />
       <input
         value={props.password}
-        type="text"
+        type="password"
         placeholder="Password"
         onChange={(event) => props.setPassword(event.target.value)}
       />
