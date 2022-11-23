@@ -4,6 +4,7 @@ import { root } from "../Root";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import SelfRegister from "../components/SelfRegister";
+import { Helmet } from "react-helmet";
 
 function getGameDrawDate(gameId, setDrawDate) {
   fetch(getBackendEndpointURL(`game/${gameId}/draw_date`))
@@ -21,5 +22,12 @@ export default function Game() {
   if (drawDate === "") {
     getGameDrawDate(id, setDrawDate);
   }
-  return <SelfRegister gameId={id} />;
+  return (
+    <div className="Login">
+      <Helmet>
+        <link rel="stylesheet" href="LoginPage.css" />
+      </Helmet>
+      <SelfRegister gameId={id} />
+    </div>
+  );
 }
