@@ -1,5 +1,6 @@
 import { root } from "../Root";
-import { BACKEND_URL, JSON_HEADERS, STATUS } from "../webconfig";
+import { JSON_HEADERS, STATUS } from "../webconfig";
+import { BACKEND_URL } from "../urls";
 import GameCreated from "../pages/GameCreated";
 
 async function postNewGame(props) {

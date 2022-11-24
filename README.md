@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Secret Santa Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This react app is the website through which users will play my new game of secret santa!
 
-## Available Scripts
+## Getting Started:
 
-In the project directory, you can run:
+This project has now been modified to be mode-base and, as such, need to be in the appropriate mode to run locally. **Make sure to set your mode before attempting after cloning repo!**
 
-### `npm start`
+### Local Mode
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This is the mode in which most development and testing will take place, it runs the frontend on localhost and assumes that the backend is also running on localhost.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### `./set_project_mode.bat local`
 
-### `npm test`
+Changes the project mode to local. This switches the project to using settings from `/src/urls/local.js` and `/packages/local.json`. If you wish to alter local mode settings these are the files you need to change.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### `npm start`
 
-### `npm run build`
+This command start hosting the website on localhost. By default, it will be hosted on port 3000; if, for any reason, you need to alter this port, this can be done by altering `"start": "react-scripts start"` to `"set PORT=xxxx && react-scripts start"` within `/packages/local.json`. \*\*Note: If you update the hosting port in this way, ensure that you alter `FRONTEND_URL` in `/src/urls/local.js` to reflect this change.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Live Mode
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This mode will be used once new features have been developed and tested in local mode and are ready for deployment.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### `./set_project_mode.bat live`
 
-### `npm run eject`
+Changes the project mode to live. This switches the project to using settings from `/src/urls/live.js` and `/packages/live.json`. If you wish to alter local mode settings these are the files you need to change. **Note: if you update `FRONTEND_URL` in `/src/urls/live.js`, ensure you update the `homepage` in `/packages/live.json` and visa versa. Always ensure they match the actual address that you will be hosting on!**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### `npm run deploy`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Builds the solution and attempts to host it from the gh-pages branch at the repo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Debugging
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Some features of this app use the `DEBUG` bool in `/src/debug.js` to determine whether they should be present. When running `./set_project_mode.bat local` or `./set_project_mode.bat live`, this `DEBUG` bool is set to `false`. To enable debugging, use `./set_project_mode.bat local debug` for local debugging or `./set_project_mode.bat live debug` for using debugging features on the live hosted site **NOT RECOMMENDED!!!**

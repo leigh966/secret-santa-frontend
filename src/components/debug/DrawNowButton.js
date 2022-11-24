@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "../../webconfig";
+import { BACKEND_URL } from "../../urls";
 
 function drawDone() {
   alert("Draw Complete");

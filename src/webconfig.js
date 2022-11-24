@@ -1,5 +1,4 @@
-export const BACKEND_URL = "http://localhost:8001/";
-export const FRONTEND_URL = "http://localhost:3000/#/";
+import { BACKEND_URL } from "./urls.js";
 export const JSON_HEADERS = {
   Accept: "application/json",
   "Content-Type": "application/json",
