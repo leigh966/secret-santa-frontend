@@ -1,4 +1,4 @@
-import { FRONTEND_URL } from "../webconfig";
+import { FRONTEND_URL } from "../urls";
 
 function GameLink(props) {
   if (props.gameId) {

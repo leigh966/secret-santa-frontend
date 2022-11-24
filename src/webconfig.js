@@ -1,5 +1,4 @@
-export const BACKEND_URL = "https://sec-sant-back.herokuapp.com/";
-export const FRONTEND_URL = "https://secret-santa.itsthenikolai.com/#/";
+import { BACKEND_URL } from "./urls.js";
 export const JSON_HEADERS = {
   Accept: "application/json",
   "Content-Type": "application/json",

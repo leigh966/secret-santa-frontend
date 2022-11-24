@@ -1,6 +1,6 @@
 import PreDraw from "./PreDraw";
 import { useState } from "react";
-import { BACKEND_URL, getBackendEndpointURL } from "../webconfig";
+import { getBackendEndpointURL } from "../webconfig";
 import PostDraw from "./PostDraw";
 
 function getDrawDate(gameId, setDrawDate) {

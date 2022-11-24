@@ -1,6 +1,6 @@
 import React from "react";
 import Dropdown from "react-dropdown";
-import { BACKEND_URL } from "../webconfig";
+import { BACKEND_URL } from "../urls";
 import "react-dropdown/style.css";
 
 export default class GroupDropdown extends React.Component {
