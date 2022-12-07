@@ -1,8 +1,18 @@
-body {
-  background-image: url("home-background-main.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
+@media screen and (orientation: portrait) {
+  body {
+    background-image: url(home-background-phone.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+}
+@media screen and (orientation: landscape) {
+  body {
+    background-image: url(home-background-main.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
 }
 
 #h1SecretSanta {
