@@ -74,8 +74,8 @@ function getGroupDropdown(
 }
 
 function getHeader(registering) {
-  if (registering) return <h1>Register</h1>;
-  else return <h1>Log In</h1>;
+  if (registering) return <h1 id="loginHeading">Register</h1>;
+  else return <h1 id="loginHeading">Log In</h1>;
 }
 
 export default function SelfRegister(props) {
@@ -86,7 +86,7 @@ export default function SelfRegister(props) {
   let [dropDownSelection, setDropdown] = useState(null); // needs to be falsy for placeholder to show
   console.log(dropDownSelection);
   return (
-    <div>
+    <div id="divLogin">
       {getHeader(registering)}
       <NamePasswordForm
         name={name}

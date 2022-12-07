@@ -2,3 +2,33 @@ input {
   margin-right: 10px;
   margin-bottom: 5px;
 }
+
+#divLogin {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+#loginHeading {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+@media screen and (orientation: portrait) {
+  body {
+    background-image: url(home-background-phone.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+}
+@media screen and (orientation: landscape) {
+  body {
+    background-image: url(home-background-main.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+}
