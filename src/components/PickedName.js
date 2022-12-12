@@ -12,7 +12,10 @@ function getPickedName(game_id, name, password, setPickedName) {
       if (resp.status === STATUS.OK || resp.status === STATUS.CREATED) {
         resp.text().then(setPickedName);
       } else {
-        resp.text().then(alert);
+        resp.text().then((txt) => {
+          console.log("txt: " + txt);
+          if (txt != "Not ready to draw") alert(txt);
+        });
       }
     })
     .catch(alert);
