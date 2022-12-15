@@ -11,8 +11,7 @@ function getDrawDate(gameId, setDrawDate) {
     })
     .then((text) => {
       if (text) {
-        var date = new Date(text + " utc");
-        setDrawDate(date.toString());
+        setDrawDate(text);
       }
     })
     .catch(alert);
@@ -21,8 +20,22 @@ function getDrawDate(gameId, setDrawDate) {
 export default function LoggedIn({ players, gameId, myName, password }) {
   let [drawDate, setDrawDate] = useState("");
   if (drawDate === "") getDrawDate(gameId, setDrawDate);
-  const drawDateAsDate = new Date(drawDate);
-  if (drawDateAsDate.getTime() > Date.now())
+  var arr = drawDate.split(/[\-\+ :T]/);
+  console.log(drawDate);
+  console.log(arr);
+  var drawDateAsDate = new Date();
+  drawDateAsDate.setUTCFullYear(arr[0]);
+  drawDateAsDate.setUTCMonth(arr[1] - 1);
+  drawDateAsDate.setUTCDate(arr[2]);
+  drawDateAsDate.setUTCHours(12);
+  //drawDateAsDate.setUTCHours(arr[3]); // currently not working in live due to issue at backend
+  //drawDateAsDate.setUTCMinutes(arr[4]);
+  //drawDateAsDate.setUTCSeconds(arr[5]);
+  console.log(drawDateAsDate.getTime());
+  if (drawDateAsDate.getTime() > Date.now()) {
+    console.log("pre");
     return <PreDraw players={players} gameId={gameId} drawDate={drawDate} />;
+  }
+  console.log("post");
   return <PostDraw gameId={gameId} name={myName} password={password} />;
 }
