@@ -1,6 +1,7 @@
 # Secret Santa Frontend
 
 This react app is the website through which users will play my new game of secret santa!
+Designed as a user interface for this REST API: https://github.com/leigh966/secret-santa-backend
 
 ## Getting Started:
 
