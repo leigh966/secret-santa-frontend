@@ -24,7 +24,7 @@ function tryLogin(name, password) {
       if (data) {
         root.render(
           <LoggedIn
-            players={data.players}
+            players={data}
             gameId={game_id}
             myName={name}
             password={password}
@@ -84,7 +84,6 @@ export default function SelfRegister(props) {
   let [password, setPassword] = useState("");
   let [registering, setRegistering] = useState(false);
   let [dropDownSelection, setDropdown] = useState(null); // needs to be falsy for placeholder to show
-  console.log(dropDownSelection);
   return (
     <div id="divLogin">
       {getHeader(registering)}

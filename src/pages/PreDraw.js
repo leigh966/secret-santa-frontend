@@ -25,6 +25,7 @@ function getDrawNowButton(gameId) {
 }
 
 export default function PreDraw(props) {
+  console.log(props.players);
   return (
     <div>
       <h3>Names will be drawn in:</h3>
