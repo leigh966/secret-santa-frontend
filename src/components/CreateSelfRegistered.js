@@ -31,7 +31,7 @@ async function postNewGame(props) {
 
 async function createGame(date) {
   const gameId = await postNewGame(date);
-  if (gameId > -1) {
+  if (gameId && gameId !== "") {
     root.render(<GameCreated gameId={gameId} />);
   }
 }
