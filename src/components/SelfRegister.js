@@ -38,7 +38,13 @@ function tryLogin(name, password) {
 function tryRegister(name, password, groupId) {
   console.log(groupId);
   const url = getBackendEndpointURL(`register/${game_id}`);
-  sendAuthenticatedRequest(url, name, password, "group_id", groupId)
+  sendAuthenticatedRequest(
+    url,
+    name,
+    password,
+    "group_id",
+    groupId ? `"${groupId}"` : null
+  )
     .then((response) => {
       if (response.status == STATUS.CREATED) {
         alert("You have been entered into the draw!");
